@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Deliveries - Form</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Delivery Form</h1>
+    <nav class="nav">
+      <a class="btn" href="index.html">Form</a>
+      <a class="btn" href="stats.html">Stats & Review</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div class="grid2">
+        <div>
+          <label>Date</label>
+          <input id="dateInput" type="date" />
+        </div>
+        <div>
+          <label>Time Saved</label>
+          <input id="timeInput" type="time" />
+        </div>
+      </div>
+
+      <div class="grid2" style="margin-top:12px">
+        <div>
+          <label>Driver</label>
+          <select id="driverSelect"></select>
+        </div>
+        <div>
+          <label>Car</label>
+          <select id="carSelect"></select>
+        </div>
+      </div>
+
+      <div class="hint">
+        Delivery Number: <b id="deliveryNumberPreview">-</b>
+      </div>
+
+      <h2>Items</h2>
+      <div class="tableWrap">
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>גמשי (Qty)</th>
+              <th>Price</th>
+              <th>חסבי (Qty)</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody id="itemsBody"></tbody>
+        </table>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" id="saveBtn">Save Delivery</button>
+        <button class="btn" id="clearBtn">Clear</button>
+      </div>
+
+      <hr class="sep" />
+
+      <div class="grid2">
+        <div class="cardInner">
+          <h3>Backup (JSON)</h3>
+          <button class="btn" id="exportJsonBtn">Export JSON</button>
+          <label class="fileLabel">
+            Import JSON
+            <input id="importJsonInput" type="file" accept="application/json" />
+          </label>
+          <p class="small">
+            Data is stored locally in your browser. Export JSON to keep a backup or move to another device.
+          </p>
+        </div>
+
+        <div class="cardInner danger">
+          <h3>Danger Zone</h3>
+          <button class="btn dangerBtn" id="deleteAllBtn">Delete ALL Data</button>
+          <p class="small">This clears LocalStorage.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    initFormPage();
+  </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Deliveries - Stats</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Stats & Review</h1>
+    <nav class="nav">
+      <a class="btn" href="index.html">Form</a>
+      <a class="btn" href="stats.html">Stats & Review</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div class="grid2">
+        <div>
+          <label>From</label>
+          <input id="fromDate" type="date" />
+        </div>
+        <div>
+          <label>To</label>
+          <input id="toDate" type="date" />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" id="applyFilterBtn">Apply Filter</button>
+        <button class="btn" id="resetFilterBtn">Reset</button>
+        <button class="btn" id="exportPdfBtn">Export PDF (Summary)</button>
+      </div>
+
+      <hr class="sep" />
+
+      <h2>Last Delivery</h2>
+      <div id="lastDeliveryBox" class="cardInner"></div>
+
+      <h2>Filtered Deliveries</h2>
+      <div class="tableWrap">
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Total Qty</th>
+              <th>Total ₪</th>
+              <th>Receipt</th>
+            </tr>
+          </thead>
+          <tbody id="deliveriesList"></tbody>
+        </table>
+      </div>
+
+      <h2>Totals (Filtered)</h2>
+      <div id="totalsBox" class="totals"></div>
+
+      <h2>Per-Item Totals by Market (Filtered)</h2>
+      <div class="tableWrap">
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>גמשי Qty</th>
+              <th>גמשי ₪</th>
+              <th>חסבי Qty</th>
+              <th>חסבי ₪</th>
+              <th>All Qty</th>
+              <th>All ₪</th>
+            </tr>
+          </thead>
+          <tbody id="perItemMarketBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- jsPDF for PDF export -->
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="app.js"></script>
+  <script>
+    initStatsPage();
+  </script>
+</body>
+</html>
